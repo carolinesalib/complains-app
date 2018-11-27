@@ -3,15 +3,10 @@ import {StyleSheet, Button, View} from 'react-native';
 
 export default class ComplainButton extends Component {
   render() {
-
-    var onPressLearnMore = function() {
-
-    }
-
     return (
       <View style={styles.container}>
         <Button
-          onPress={onPressLearnMore}
+          onPress={this.props.addComplain}
           title="Complain"
           accessibilityLabel="Register one complain"
           color="#1F2D3D"

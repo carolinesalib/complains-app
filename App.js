@@ -5,18 +5,35 @@ import UndoComplainButton from './src/components/UndoComplainButton';
 import ComplainText from './src/components/ComplainText';
 
 export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      complains: 0
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.content}>
-          <ComplainText />
+          <ComplainText complains={this.state.complains} />
         </View>
         <View style={styles.buttons}>
-          <ComplainButton />
-          <UndoComplainButton />
+          <ComplainButton addComplain={this.addComplain} />
+          <UndoComplainButton removeComplain={this.removeComplain} />
         </View>
       </View>
     );
+  }
+
+  addComplain = () => {
+    this.setState({ complains: this.state.complains + 1 });
+  }
+
+  removeComplain = () => {
+    if (this.state.complains > 0) {
+      this.setState({ complains: this.state.complains - 1 });
+    }
   }
 }
 

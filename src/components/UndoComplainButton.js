@@ -3,15 +3,10 @@ import {StyleSheet, Button, View} from 'react-native';
 
 export default class UndoComplainButton extends Component {
   render() {
-
-    var onPressLearnMore = function() {
-
-    }
-
     return (
       <View style={styles.container}>
         <Button
-          onPress={onPressLearnMore}
+          onPress={this.props.removeComplain}
           title="Undo"
           accessibilityLabel="Delete last complain"
           color="#1F2D3D"
